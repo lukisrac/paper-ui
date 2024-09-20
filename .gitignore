@@ -135,6 +135,8 @@ storybook-static
 
 .fleet
 .idea
+.DS_Store
+src/.DS_Store
 
 # bun
 bun.lockb

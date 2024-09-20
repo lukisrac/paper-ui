@@ -5,6 +5,8 @@
     --border-radius: 6px;
     --color: var(--color-white);
     --color-hover: var(--color-white);
+    --icon-color: var(--color-white);
+    --icon-color-hover: var(--color-white);
     --ring-color: var(--color-black);
 
     background-color: var(--bg-color);
@@ -13,9 +15,14 @@
     color: var(--color);
     cursor: pointer;
     position: relative;
-    transition: background-color 0.2s ease-in-out;
+    transition:
+        background-color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
 
     &.is-hovered {
+        --border-color: var(--bg-color-hover);
+
         background-color: var(--bg-color-hover);
         color: var(--color-hover);
     }
@@ -38,26 +45,72 @@
 
         font: var(--font-body-lg);
         padding: 0.75rem 1rem;
+
+        &.is-icon-button {
+            padding: 0.75rem;
+
+            svg {
+                height: 28px;
+                width: 28px;
+            }
+        }
     }
 
     &.button--size-default {
         font: var(--font-body);
         padding: 0.5rem 1rem;
+
+        &.is-icon-button {
+            padding: 0.5rem;
+
+            svg {
+                height: 24px;
+                width: 24px;
+            }
+        }
     }
 
     &.button--size-small {
         font: var(--font-caption);
         padding: 5px 0.75rem;
+
+        &.is-icon-button {
+            padding: 6px;
+
+            svg {
+                height: 20px;
+                width: 20px;
+            }
+        }
     }
 
     &.button--variant-outline {
         --bg-color: var(--color-white);
         --color: var(--color-black);
+        --icon-color: var(--color-black);
+
+        &.is-hovered {
+            --icon-color: var(--color-white);
+        }
     }
 
     &.button--variant-ghost {
         --bg-color: var(--color-white);
         --border-color: var(--color-white);
         --color: var(--color-black);
+        --icon-color: var(--color-black);
+
+        &.is-hovered {
+            --icon-color: var(--color-white);
+        }
+    }
+
+    &.is-disabled {
+        --bg-color: var(--color-gray-300);
+        --border-color: var(--color-gray-300);
+        --color: var(--color-gray-100);
+        --icon-color: var(--color-gray-100);
+
+        cursor: not-allowed;
     }
 }

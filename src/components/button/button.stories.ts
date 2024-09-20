@@ -48,3 +48,14 @@ export const Ghost: Story = {
         variant: "ghost",
     },
 };
+
+export const Icon: Story = {
+    args: {
+        isDisabled: false,
+        isIconButton: true,
+        label: "Button",
+        onClick: () => void null,
+        size: "default",
+        variant: "primary",
+    },
+};
