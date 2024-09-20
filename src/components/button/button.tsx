@@ -2,20 +2,30 @@ import { Button as ReactAriaButton, ButtonProps } from "react-aria-components";
 import { cx } from "../../utils/cx";
 
 interface Props {
+    autoFocus?: boolean;
+    className?: string;
     form?: ButtonProps["form"];
     formAction?: ButtonProps["formAction"];
+    formEncType?: ButtonProps["formEncType"];
+    formMethod?: ButtonProps["formMethod"];
+    formNoValidate?: ButtonProps["formNoValidate"];
+    formTarget?: ButtonProps["formTarget"];
+    children?: ButtonProps["children"];
     isDisabled?: boolean;
     isIconButton?: boolean;
-    label?: string;
+    name?: string;
     onClick?: () => void;
     size?: "small" | "default" | "large";
+    style?: ButtonProps["style"];
     type?: ButtonProps["type"];
+    value?: string;
     variant?: "primary" | "outline" | "ghost";
 }
 
 export function Button(props: Props) {
     return (
         <ReactAriaButton
+            autoFocus={props.autoFocus}
             className={({ isDisabled, isFocusVisible, isFocused, isHovered, isPressed }) =>
                 cx(
                     "button",
@@ -27,13 +37,21 @@ export function Button(props: Props) {
                     isFocused && "is-focused",
                     isHovered && "is-hovered",
                     isPressed && "is-pressed",
+                    props.className,
                 )
             }
             form={props.form}
             formAction={props.formAction}
+            formEncType={props.formEncType}
+            formMethod={props.formMethod}
+            formNoValidate={props.formNoValidate}
+            formTarget={props.formTarget}
             isDisabled={props.isDisabled}
+            name={props.name}
             onPress={props.onClick}
+            style={props.style}
             type={props.type}
+            value={props.value}
         >
             {props.isIconButton ? (
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
@@ -43,7 +61,7 @@ export function Button(props: Props) {
                     />
                 </svg>
             ) : (
-                props.label ?? "Button"
+                props.children
             )}
         </ReactAriaButton>
     );
