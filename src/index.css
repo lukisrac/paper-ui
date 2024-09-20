@@ -1,5 +1,6 @@
-@import url('./styles/base.css');
-@import url('./styles/reset.css');
-@import url('./styles/typography.css');
+@import url("./styles/base.css");
+@import url("./styles/reset.css");
+@import url("./styles/typography.css");
 
-@import url('./components/button/button.css');
+@import url("./components/button/button.css");
+@import url("./components/toggle-button/toggle-button.css");

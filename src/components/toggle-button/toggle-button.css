@@ -1,0 +1,94 @@
+.toggle-button {
+    --bg-color: var(--color-white);
+    --bg-color-hover: var(--color-gray-200);
+    --bg-color-selected: var(--color-black);
+    --border-color: var(--color-black);
+    --border-radius: 6px;
+    --color: var(--color-black);
+    --color-selected: var(--color-white);
+    --icon-color: var(--color-black);
+    --icon-color-selected: var(--color-white);
+    --ring-color: var(--color-black);
+
+    background-color: var(--bg-color);
+    border: 3px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--color);
+    cursor: pointer;
+    position: relative;
+
+    &.is-hovered {
+        background-color: var(--bg-color-hover);
+    }
+
+    &.is-pressed {
+        top: 1px;
+    }
+
+    &.is-selected {
+        --icon-color: var(--icon-color-selected);
+
+        background-color: var(--bg-color-selected);
+        color: var(--color-selected);
+    }
+
+    &.is-focused {
+        outline: none;
+    }
+
+    &.is-focus-visible {
+        outline: 3px solid var(--ring-color);
+        outline-offset: 2px;
+    }
+
+    &.toggle-button--size-small {
+        font: var(--font-caption);
+        padding: 5px 0.75rem;
+
+        &.is-icon-button {
+            padding: 6px;
+
+            svg {
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    &.toggle-button--size-default {
+        font: var(--font-body);
+        padding: 0.5rem 1rem;
+
+        &.is-icon-button {
+            padding: 0.5rem;
+
+            svg {
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+
+    &.toggle-button--size-large {
+        font: var(--font-body-lg);
+        padding: 0.75rem 1rem;
+
+        &.is-icon-button {
+            padding: 0.75rem;
+
+            svg {
+                height: 28px;
+                width: 28px;
+            }
+        }
+    }
+
+    &.is-disabled {
+        --bg-color: var(--color-gray-300);
+        --border-color: var(--color-gray-300);
+        --color: var(--color-gray-100);
+        --icon-color: var(--color-gray-100);
+
+        cursor: not-allowed;
+    }
+}
